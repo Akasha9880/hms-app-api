@@ -20,7 +20,19 @@ public class SecurityConfig {
 
        http.csrf().disable().cors().disable();
        http.addFilterBefore(jwtFilter, AuthorizationFilter.class);
-        http.authorizeHttpRequests().anyRequest().permitAll();
+       http.authorizeHttpRequests().anyRequest().permitAll();
+//        http.authorizeHttpRequests()
+//                .requestMatchers("/api/auth/sign-up","/api/auth/login","/api/auth/property/sign-up","/api/v1/property/{searchParam}")
+//               .permitAll()
+//                .requestMatchers("/api/v1/review?propertyId=1","/api/v1/review/user/reviews","/api/auth")
+//                .hasRole("USER")
+//                .requestMatchers("/api/v1/property/addProperty","/api/v1/Country/addCountry","/api/v1/city/addCity","/api/v1/City/delete","/api/v1/Country/delete")
+//                .hasRole("OWNER")
+//                .requestMatchers("/api/v1/property/deleteProperty")
+//                .hasAnyRole("OWNER","ADMIN")
+//               .requestMatchers("/api/auth/blog/sign-up")
+//                .hasRole("ADMIN")
+//               .anyRequest().authenticated();
        return http.build();
     }
 }

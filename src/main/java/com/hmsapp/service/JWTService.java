@@ -18,10 +18,10 @@ public class JWTService {
             private String algorithmKey;
 
     @Value("{jwt.issuer}")
-private String issuer;
+    private String issuer;
 
     @Value("${jwt.expiry.duration}")
-private String expiry;
+        private String expiry;
 
     private Algorithm algorithm;
     @PostConstruct
